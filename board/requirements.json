@@ -25,6 +25,7 @@
   "derivation": {
     "method": "BRIEF.md was read and split; no design decision was taken. Every fixed_requirements entry, and every spec-table row sourced from the brief, carries a quotation that was checked by literal substring match against the brief bytes digested above. The build refuses to emit this file if any quotation is not found.",
     "quotations_verified": 26,
+    "where_the_quotations_are": "Every one of them is in this file: fixed_requirements[].brief_evidence and brief_spec_rows[].brief_evidence. The count above is the sum of those two lists, so it is recomputable from this repository alone - re-read BRIEF.md and check each string is a substring of it. brief_spec_rows carries the quotations behind the README's spec table, which would otherwise cite the brief with the evidence left in a build script.",
     "review": "two rounds of adversarial review against the brief, looking for invented requirements, lost requirements, evidence supporting a weaker claim than the one made beside it, and worksheet questions that presuppose their own answer"
   },
   "fixed_requirements": [
@@ -112,6 +113,53 @@
       "id": "REQ-17",
       "requirement": "This repository should remain a consumer of the shared PCBA_AutoDesignAndTest toolkit rather than accumulating board-specific logic in the toolkit.",
       "brief_evidence": "The repository should remain a consumer of the shared `PCBA_AutoDesignAndTest` toolkit rather than accumulating board-specific logic in the toolkit."
+    }
+  ],
+  "brief_spec_rows": [
+    {
+      "aspect": "Video input",
+      "value": "Unencrypted HDMI video received through an HDMI connector",
+      "brief_evidence": "receives unencrypted HDMI video through an HDMI connector and delivers decoded pixel data"
+    },
+    {
+      "aspect": "Video sink",
+      "value": "An FPGA on the same board, fed decoded pixel data or a parallel/video stream",
+      "brief_evidence": "delivers decoded pixel data or a parallel/video stream to an FPGA on the same board"
+    },
+    {
+      "aspect": "HDMI receiver",
+      "value": "A suitable HDMI receiver device — no specific part, vendor or family named by the brief",
+      "brief_evidence": "Use a suitable HDMI receiver device"
+    },
+    {
+      "aspect": "Content protection scope",
+      "value": "HDCP-protected content handling is explicitly out of scope",
+      "brief_evidence": "do not implement HDCP-protected content handling"
+    },
+    {
+      "aspect": "EDID storage and configuration control",
+      "value": "Both required on the board; implementation not specified",
+      "brief_evidence": "Include EDID storage, configuration control, clocks"
+    },
+    {
+      "aspect": "Clocks",
+      "value": "Required; number, source, frequency and distribution not specified",
+      "brief_evidence": "Include EDID storage, configuration control, clocks"
+    },
+    {
+      "aspect": "FPGA configuration memory",
+      "value": "Required; device type and configuration mode not specified",
+      "brief_evidence": "Include EDID storage, configuration control, clocks, FPGA configuration memory"
+    },
+    {
+      "aspect": "USB/debug interface",
+      "value": "Required; role, speed, connector and relationship to FPGA programming not specified",
+      "brief_evidence": "Include EDID storage, configuration control, clocks, FPGA configuration memory, and a USB/debug interface."
+    },
+    {
+      "aspect": "Areas to treat as critical",
+      "value": "TMDS routing, ESD, reference planes, receiver power integrity, FPGA escape",
+      "brief_evidence": "Treat TMDS routing, ESD, reference planes, receiver power integrity, and FPGA escape as critical."
     }
   ],
   "open_decisions": [
