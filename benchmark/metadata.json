@@ -1,0 +1,16 @@
+{
+  "repo": "PCBA_HDMI_FPGA_Bridge",
+  "title": "HDMI-to-FPGA Video Bridge",
+  "category": "high-speed-video",
+  "difficulty": 5,
+  "detail": 3,
+  "layers": "6",
+  "stress": [
+    "TMDS differential pairs",
+    "FPGA escape",
+    "clocking",
+    "connector pin ordering"
+  ],
+  "benchmark_id": 27,
+  "brief_file": "BRIEF.md"
+}
